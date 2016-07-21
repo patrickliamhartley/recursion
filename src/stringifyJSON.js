@@ -24,12 +24,17 @@ var stringifyJSON = function(obj) {
   	return 'undefined';
   }
   if (typeof(obj)==="function"){
-  	return;
+  	return 'undefined';
   }
 
-  if(typeof(obj)==='object'){
+  if(obj && typeof(obj)==='object'){
   	var array=[];
-  	for (var key in obj){
+
+  	for (var key in obj){	
+  		if (obj[key] === undefined || typeof(obj[key]) === 'function') {
+        return "{}";
+    }
+      
   		array.push(stringifyJSON(key)+':'+stringifyJSON(obj[key]));
   	};
   	return '{'+array.join()+'}';
