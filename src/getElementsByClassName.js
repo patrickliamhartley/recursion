@@ -8,7 +8,11 @@ var getElementsByClassName = function(className) {
 	var elements=[];
 		nodeFunc= function (node){
 			if( !(node===undefined)){
-				var classes=node.classList;
+				var classes=node.classes;
+				for (var i=0;i<node.length;i++){
+					nodeFunc(node[i]);
+				}
+
 
 			}
 		}
