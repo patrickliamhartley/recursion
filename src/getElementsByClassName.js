@@ -7,16 +7,23 @@
 var getElementsByClassName = function(className) {
 	var elements=[];
 		nodeFunc= function (node){
-			if( !(node===undefined)){
+			if( node){
 				var classes=node.classes;
 				for (var i=0;i<node.length;i++){
 					nodeFunc(node[i]);
 				}
 
 
+			}else{
+				if (classes.contains(className)){
+					result.push(node);
+				}
+				nodeFunc(node.childNodes);
+
 			}
 		}
 
-
+ nodeFunc(document.body);
+ return elements;
   // your code here
 };
