@@ -4,7 +4,15 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+var getElementsByClassName = function(className) {
+	var elements=[];
+		nodeFunc= function (node){
+			if( !(node===undefined)){
+				var classes=node.classList;
+
+			}
+		}
+
+
   // your code here
 };
