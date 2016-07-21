@@ -15,7 +15,29 @@ var stringifyJSON = function(obj) {
   }
   if (typeof(obj)==='null'){
 
-  	return '{}';
+  	return 'null';
   }
+  if (typeof(obj)==="string"){
+  	return '"'+obj+'"';
+  }
+  if (typeof(obj)==="undefined"){
+  	return 'undefined';
+  }
+  if (typeof(obj)==="function"){
+  	return;
+  }
+
+  if(typeof(obj)==='object'){
+  	var array=[];
+  	for (var key in obj){
+  		array.push(stringifyJSON(key)+':'+stringifyJSON(obj[key]));
+  	};
+  	return '{'+array.join()+'}';
+
+
+  }
+  return '' + obj;
+
+
 };
  
